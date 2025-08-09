@@ -28,6 +28,27 @@ export class CompanySearchController {
       address?: string;
       industry?: string;
       businessItem?: string;
+      foundedYear?: string;
+      salesArea?: string;
+      unifiedQualification?: string;
+      unifiedQualificationSub01?: string;
+      unifiedQualificationSub02?: string;
+      unifiedQualificationSub03?: string;
+      unifiedQualificationSub04?: string;
+      netSalesFrom?: number;
+      netSalesTo?: number;
+      netIncomeLossFrom?: number;
+      netIncomeLossTo?: number;
+      totalAssetsFrom?: number;
+      totalAssetsTo?: number;
+      operatingRevenue1From?: number;
+      operatingRevenue1To?: number;
+      operatingRevenue2From?: number;
+      operatingRevenue2To?: number;
+      ordinaryIncomeLossFrom?: number;
+      ordinaryIncomeLossTo?: number;
+      ordinaryIncomeFrom?: number;
+      ordinaryIncomeTo?: number;
       capitalStockFrom?: number;
       capitalStockTo?: number;
       employeeNumberFrom?: number;
@@ -75,6 +96,27 @@ export class CompanySearchController {
       address: params.address?.trim(),
       industry: params.industry?.trim(),
       businessItem: params.businessItem?.trim(),
+      foundedYear: params.foundedYear?.trim(),
+      salesArea: params.salesArea?.trim(),
+      unifiedQualification: params.unifiedQualification?.trim(),
+      unifiedQualificationSub01: params.unifiedQualificationSub01?.trim(),
+      unifiedQualificationSub02: params.unifiedQualificationSub02?.trim(),
+      unifiedQualificationSub03: params.unifiedQualificationSub03?.trim(),
+      unifiedQualificationSub04: params.unifiedQualificationSub04?.trim(),
+      netSalesFrom: params.netSalesFrom,
+      netSalesTo: params.netSalesTo,
+      netIncomeLossFrom: params.netIncomeLossFrom,
+      netIncomeLossTo: params.netIncomeLossTo,
+      totalAssetsFrom: params.totalAssetsFrom,
+      totalAssetsTo: params.totalAssetsTo,
+      operatingRevenue1From: params.operatingRevenue1From,
+      operatingRevenue1To: params.operatingRevenue1To,
+      operatingRevenue2From: params.operatingRevenue2From,
+      operatingRevenue2To: params.operatingRevenue2To,
+      ordinaryIncomeLossFrom: params.ordinaryIncomeLossFrom,
+      ordinaryIncomeLossTo: params.ordinaryIncomeLossTo,
+      ordinaryIncomeFrom: params.ordinaryIncomeFrom,
+      ordinaryIncomeTo: params.ordinaryIncomeTo,
       capitalStockFrom: params.capitalStockFrom,
       capitalStockTo: params.capitalStockTo,
       employeeNumberFrom: params.employeeNumberFrom,
