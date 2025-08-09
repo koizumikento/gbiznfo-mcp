@@ -42,10 +42,7 @@ import { GbizinfoService } from "gbixnfo-mcp";
 
 const service = new GbizinfoService();
 
-// 名前で企業検索（ページ: 1, 件数: 20）
-const page = await service.searchCompaniesByName("テスト", 1, 20);
-
-// 複合条件検索
+// 企業検索（複合条件）
 const result = await service.searchCompanies({
   name: "テスト",
   prefecture: "東京都",
@@ -78,8 +75,7 @@ npx --yes -p gbixnfo-mcp gbizinfo-mcp
 ```
 
 ### 提供ツール
-- `search_companies`: 企業名で検索（`name`, `from`, `size`）
-- `search`: 複合条件検索（`name`/`corporateNumber`/`corporateType`/`existFlg`/`prefecture`/`city`/`address`/`industry`/`capitalStockFrom`/`capitalStockTo`/`employeeNumberFrom`/`employeeNumberTo`/`establishmentFrom`/`establishmentTo`/`from`/`size`）
+- `search`: 企業検索（複合条件: `name`/`corporateNumber`/`corporateType`/`existFlg`/`prefecture`/`city`/`address`/`industry`/`capitalStockFrom`/`capitalStockTo`/`employeeNumberFrom`/`employeeNumberTo`/`establishmentFrom`/`establishmentTo`/`from`/`size`）
 - `get_basic_info`: 基本情報取得（法人番号）
 - `get_certification`: 届出・認定情報
 - `get_commendation`: 表彰情報
