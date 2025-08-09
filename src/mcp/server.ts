@@ -28,10 +28,10 @@ async function run(): Promise<void> {
             properties: {
               name: { type: "string", description: "企業名（部分一致）" },
               corporateNumber: { type: "string", description: "法人番号 (corporate_number)" },
-              corporateType: { type: "string", description: "法人種別コード（カンマ区切り）" },
+              corporateType: { type: "string", description: "法人種別コード（101: 国の機関, 201: 地方公共団体, 301: 株式会社, 302: 有限会社, 303: 合名会社, 304: 合資会社, 305: 合同会社, 399: その他の設立登記法人, 401: 外国会社等, 499: その他。複数はカンマ区切り）" },
               existFlg: { type: "boolean", description: "法人活動情報の有無" },
-              prefecture: { type: "string", description: "都道府県名" },
-              city: { type: "string", description: "市区町村名" },
+              prefecture: { type: "string", description: "都道府県コード（JIS X 0401の2桁）" },
+              city: { type: "string", description: "市区町村コード（JIS X 0402の3桁）" },
               address: { type: "string", description: "住所（フリーテキスト）" },
               industry: { type: "string", description: "業種（フリーテキストまたはコード）" },
               capitalStockFrom: { type: "number", description: "資本金（下限）" },
