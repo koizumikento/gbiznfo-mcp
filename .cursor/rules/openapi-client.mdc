@@ -1,0 +1,34 @@
+---
+description: gBizINFO OpenAPI スキーマ取得とクライアント生成手順
+---
+# gBizINFO OpenAPI 取得・変換・クライアント生成
+
+このルールは gBizINFO 情報提供APIの OpenAPI スキーマ取得から、クライアント生成までの手順を示します。公式 Swagger UI: `https://info.gbiz.go.jp/hojin/swagger-ui/index.html`
+
+## スキーマ取得
+- Swagger UI から `openapi.json` を入手（ネットワークタブ/エクスポート）
+- 取得した JSON を [`openapi/raw/gbizinfo-openapi.json`](mdc:openapi/raw/gbizinfo-openapi.json) に保存
+
+## スキーマ変換
+- Swagger Editor で JSON → YAML に変換し、OpenAPI 3.0.x 準拠に整形
+- 変換後を [`openapi/gbizinfo-openapi.yaml`](mdc:openapi/gbizinfo-openapi.yaml) に保存
+
+## クライアント生成（TypeScript）
+推奨: OpenAPI Generator
+
+```sh
+npx @openapitools/openapi-generator-cli generate \
+  -i openapi/gbizinfo-openapi.yaml \
+  -g typescript-fetch \
+  -o src/clients/gbizinfo \
+  --additional-properties=supportsES6=true,typescriptThreePlus=true
+```
+
+## 生成物の適用
+- 生成されたクライアントのエントリを [`src/clients/gbizinfo/index.ts`](mdc:src/clients/gbizinfo/index.ts) で再エクスポート
+- HTTP 実装差し替えが必要な場合は [`src/services/http.ts`](mdc:src/services/http.ts) を利用
+
+## バージョン管理
+- `openapi/raw/` は更新履歴のため全てコミット
+- `src/clients/gbizinfo` は生成物だが、本プロジェクトでは再現性のためコミット
+

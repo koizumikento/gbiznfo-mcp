@@ -1,0 +1,37 @@
+{
+  "name": "gbixnfo-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch examples/dev.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "generate:client": "openapi-generator-cli generate -i openapi/gbizinfo-openapi.yaml -g typescript-fetch -o src/clients/gbizinfo --additional-properties=supportsES6=true,typescriptThreePlus=true"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "gbizinfo": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.13.1",
+    "@types/node": "^20.14.2",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.4"
+  }
+}
+
