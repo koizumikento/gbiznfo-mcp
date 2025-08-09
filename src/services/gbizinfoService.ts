@@ -122,6 +122,28 @@ export class GbizinfoService {
     city?: string;
     address?: string;
     industry?: string;
+    businessItem?: string; // カンマ区切り可（GEPS 営業品目コード）
+    foundedYear?: string; // カンマ区切り可
+    salesArea?: string; // カンマ区切り可（地域対応表のマスターコード）
+    unifiedQualification?: string; // A,B,C,D カンマ区切り（従来型）
+    unifiedQualificationSub01?: string; // A,B,C,D カンマ区切り
+    unifiedQualificationSub02?: string; // A,B,C,D カンマ区切り
+    unifiedQualificationSub03?: string; // A,B,C,D カンマ区切り
+    unifiedQualificationSub04?: string; // A,B,C,D カンマ区切り
+    netSalesFrom?: number;
+    netSalesTo?: number;
+    netIncomeLossFrom?: number;
+    netIncomeLossTo?: number;
+    totalAssetsFrom?: number;
+    totalAssetsTo?: number;
+    operatingRevenue1From?: number;
+    operatingRevenue1To?: number;
+    operatingRevenue2From?: number;
+    operatingRevenue2To?: number;
+    ordinaryIncomeLossFrom?: number;
+    ordinaryIncomeLossTo?: number;
+    ordinaryIncomeFrom?: number;
+    ordinaryIncomeTo?: number;
     capitalStockFrom?: number;
     capitalStockTo?: number;
     employeeNumberFrom?: number;
@@ -146,6 +168,28 @@ export class GbizinfoService {
     if (params.city) query.set("city", params.city);
     if (params.address) query.set("address", params.address);
     if (params.industry) query.set("industry", params.industry);
+    if (params.businessItem) query.set("business_item", params.businessItem);
+    if (params.foundedYear) query.set("founded_year", params.foundedYear);
+    if (params.salesArea) query.set("sales_area", params.salesArea);
+    if (params.unifiedQualification) query.set("unified_qualification", params.unifiedQualification);
+    if (params.unifiedQualificationSub01) query.set("unified_qualification_sub01", params.unifiedQualificationSub01);
+    if (params.unifiedQualificationSub02) query.set("unified_qualification_sub02", params.unifiedQualificationSub02);
+    if (params.unifiedQualificationSub03) query.set("unified_qualification_sub03", params.unifiedQualificationSub03);
+    if (params.unifiedQualificationSub04) query.set("unified_qualification_sub04", params.unifiedQualificationSub04);
+    if (typeof params.netSalesFrom === "number") query.set("net_sales_summary_of_business_results_from", String(params.netSalesFrom));
+    if (typeof params.netSalesTo === "number") query.set("net_sales_summary_of_business_results_to", String(params.netSalesTo));
+    if (typeof params.netIncomeLossFrom === "number") query.set("net_income_loss_summary_of_business_results_from", String(params.netIncomeLossFrom));
+    if (typeof params.netIncomeLossTo === "number") query.set("net_income_loss_summary_of_business_results_to", String(params.netIncomeLossTo));
+    if (typeof params.totalAssetsFrom === "number") query.set("total_assets_summary_of_business_results_from", String(params.totalAssetsFrom));
+    if (typeof params.totalAssetsTo === "number") query.set("total_assets_summary_of_business_results_to", String(params.totalAssetsTo));
+    if (typeof params.operatingRevenue1From === "number") query.set("operating_revenue1_summary_of_business_results_from", String(params.operatingRevenue1From));
+    if (typeof params.operatingRevenue1To === "number") query.set("operating_revenue1_summary_of_business_results_to", String(params.operatingRevenue1To));
+    if (typeof params.operatingRevenue2From === "number") query.set("operating_revenue2_summary_of_business_results_from", String(params.operatingRevenue2From));
+    if (typeof params.operatingRevenue2To === "number") query.set("operating_revenue2_summary_of_business_results_to", String(params.operatingRevenue2To));
+    if (typeof params.ordinaryIncomeLossFrom === "number") query.set("ordinary_income_loss_summary_of_business_results_from", String(params.ordinaryIncomeLossFrom));
+    if (typeof params.ordinaryIncomeLossTo === "number") query.set("ordinary_income_loss_summary_of_business_results_to", String(params.ordinaryIncomeLossTo));
+    if (typeof params.ordinaryIncomeFrom === "number") query.set("ordinary_income_summary_of_business_results_from", String(params.ordinaryIncomeFrom));
+    if (typeof params.ordinaryIncomeTo === "number") query.set("ordinary_income_summary_of_business_results_to", String(params.ordinaryIncomeTo));
     if (typeof params.capitalStockFrom === "number") query.set("capital_stock_from", String(params.capitalStockFrom));
     if (typeof params.capitalStockTo === "number") query.set("capital_stock_to", String(params.capitalStockTo));
     if (typeof params.employeeNumberFrom === "number") query.set("employee_number_from", String(params.employeeNumberFrom));

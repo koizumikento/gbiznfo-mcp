@@ -28,12 +28,34 @@ async function run(): Promise<void> {
             properties: {
               name: { type: "string", description: "企業名（部分一致）" },
               corporateNumber: { type: "string", description: "法人番号 (corporate_number)" },
-              corporateType: { type: "string", description: "法人種別コード（カンマ区切り）" },
+              corporateType: { type: "string", description: "法人種別コード（101: 国の機関, 201: 地方公共団体, 301: 株式会社, 302: 有限会社, 303: 合名会社, 304: 合資会社, 305: 合同会社, 399: その他の設立登記法人, 401: 外国会社等, 499: その他。複数はカンマ区切り）" },
               existFlg: { type: "boolean", description: "法人活動情報の有無" },
-              prefecture: { type: "string", description: "都道府県名" },
-              city: { type: "string", description: "市区町村名" },
+              prefecture: { type: "string", description: "都道府県コード（JIS X 0401の2桁）" },
+              city: { type: "string", description: "市区町村コード（JIS X 0402の3桁）" },
               address: { type: "string", description: "住所（フリーテキスト）" },
               industry: { type: "string", description: "業種（フリーテキストまたはコード）" },
+              businessItem: { type: "string", description: "営業品目コード（GEPS）。例: 101, 206。複数はカンマ区切り" },
+              foundedYear: { type: "string", description: "創業年・設立年（カンマ区切り可）" },
+              salesArea: { type: "string", description: "営業エリア（地域対応表のgBizINFOマスターコード。カンマ区切り可）" },
+              unifiedQualification: { type: "string", description: "全省庁統一資格の資格等級（従来型）。A,B,C,D をカンマ区切りで指定" },
+              unifiedQualificationSub01: { type: "string", description: "資格等級(物品の製造)：A,B,C,D をカンマ区切りで指定" },
+              unifiedQualificationSub02: { type: "string", description: "資格等級(物品の販売)：A,B,C,D をカンマ区切りで指定" },
+              unifiedQualificationSub03: { type: "string", description: "資格等級(役務の提供等)：A,B,C,D をカンマ区切りで指定" },
+              unifiedQualificationSub04: { type: "string", description: "資格等級(物品の買受け)：A,B,C,D をカンマ区切りで指定" },
+              netSalesFrom: { type: "number", description: "売上高（以上）" },
+              netSalesTo: { type: "number", description: "売上高（以下）" },
+              netIncomeLossFrom: { type: "number", description: "当期純利益又は当期純損失（以上）" },
+              netIncomeLossTo: { type: "number", description: "当期純利益又は当期純損失（以下）" },
+              totalAssetsFrom: { type: "number", description: "総資産額（以上）" },
+              totalAssetsTo: { type: "number", description: "総資産額（以下）" },
+              operatingRevenue1From: { type: "number", description: "営業収益（以上）" },
+              operatingRevenue1To: { type: "number", description: "営業収益（以下）" },
+              operatingRevenue2From: { type: "number", description: "営業収入（以上）" },
+              operatingRevenue2To: { type: "number", description: "営業収入（以下）" },
+              ordinaryIncomeLossFrom: { type: "number", description: "経常利益又は経常損失（以上）" },
+              ordinaryIncomeLossTo: { type: "number", description: "経常利益又は経常損失（以下）" },
+              ordinaryIncomeFrom: { type: "number", description: "経常収益（以上）" },
+              ordinaryIncomeTo: { type: "number", description: "経常収益（以下）" },
               capitalStockFrom: { type: "number", description: "資本金（下限）" },
               capitalStockTo: { type: "number", description: "資本金（上限）" },
               employeeNumberFrom: { type: "number", description: "従業員数（下限）" },
@@ -146,6 +168,28 @@ async function run(): Promise<void> {
           city?: string;
           address?: string;
           industry?: string;
+          businessItem?: string;
+          foundedYear?: string;
+          salesArea?: string;
+          unifiedQualification?: string;
+          unifiedQualificationSub01?: string;
+          unifiedQualificationSub02?: string;
+          unifiedQualificationSub03?: string;
+          unifiedQualificationSub04?: string;
+          netSalesFrom?: number;
+          netSalesTo?: number;
+          netIncomeLossFrom?: number;
+          netIncomeLossTo?: number;
+          totalAssetsFrom?: number;
+          totalAssetsTo?: number;
+          operatingRevenue1From?: number;
+          operatingRevenue1To?: number;
+          operatingRevenue2From?: number;
+          operatingRevenue2To?: number;
+          ordinaryIncomeLossFrom?: number;
+          ordinaryIncomeLossTo?: number;
+          ordinaryIncomeFrom?: number;
+          ordinaryIncomeTo?: number;
           capitalStockFrom?: number;
           capitalStockTo?: number;
           employeeNumberFrom?: number;
@@ -164,6 +208,28 @@ async function run(): Promise<void> {
           city: args.city,
           address: args.address,
           industry: args.industry,
+          businessItem: args.businessItem,
+          foundedYear: args.foundedYear,
+          salesArea: args.salesArea,
+          unifiedQualification: args.unifiedQualification,
+          unifiedQualificationSub01: args.unifiedQualificationSub01,
+          unifiedQualificationSub02: args.unifiedQualificationSub02,
+          unifiedQualificationSub03: args.unifiedQualificationSub03,
+          unifiedQualificationSub04: args.unifiedQualificationSub04,
+          netSalesFrom: args.netSalesFrom,
+          netSalesTo: args.netSalesTo,
+          netIncomeLossFrom: args.netIncomeLossFrom,
+          netIncomeLossTo: args.netIncomeLossTo,
+          totalAssetsFrom: args.totalAssetsFrom,
+          totalAssetsTo: args.totalAssetsTo,
+          operatingRevenue1From: args.operatingRevenue1From,
+          operatingRevenue1To: args.operatingRevenue1To,
+          operatingRevenue2From: args.operatingRevenue2From,
+          operatingRevenue2To: args.operatingRevenue2To,
+          ordinaryIncomeLossFrom: args.ordinaryIncomeLossFrom,
+          ordinaryIncomeLossTo: args.ordinaryIncomeLossTo,
+          ordinaryIncomeFrom: args.ordinaryIncomeFrom,
+          ordinaryIncomeTo: args.ordinaryIncomeTo,
           capitalStockFrom: args.capitalStockFrom,
           capitalStockTo: args.capitalStockTo,
           employeeNumberFrom: args.employeeNumberFrom,
