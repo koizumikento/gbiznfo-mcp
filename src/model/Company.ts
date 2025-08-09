@@ -4,6 +4,7 @@ export type Company = {
   prefecture?: string;
   city?: string;
   address?: string;
+  postalCode?: string;
   industry?: string;
 };
 

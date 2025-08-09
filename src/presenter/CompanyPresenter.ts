@@ -5,6 +5,7 @@ export type CompanyListItemView = {
   corporateNumber: string;
   name: string;
   address: string;
+  postalCode?: string;
 };
 
 export function presentCompanyList(companies: Company[]): CompanyListItemView[] {
@@ -12,6 +13,7 @@ export function presentCompanyList(companies: Company[]): CompanyListItemView[] 
     corporateNumber: c.corporateNumber,
     name: c.name,
     address: [c.prefecture, c.city, c.address].filter(Boolean).join("") || "",
+    postalCode: c.postalCode,
   }));
 }
 
