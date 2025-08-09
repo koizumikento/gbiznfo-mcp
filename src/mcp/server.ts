@@ -34,6 +34,7 @@ async function run(): Promise<void> {
               city: { type: "string", description: "市区町村コード（JIS X 0402の3桁）" },
               address: { type: "string", description: "住所（フリーテキスト）" },
               industry: { type: "string", description: "業種（フリーテキストまたはコード）" },
+              businessItem: { type: "string", description: "営業品目コード（GEPS）。例: 101, 206。複数はカンマ区切り" },
               capitalStockFrom: { type: "number", description: "資本金（下限）" },
               capitalStockTo: { type: "number", description: "資本金（上限）" },
               employeeNumberFrom: { type: "number", description: "従業員数（下限）" },
@@ -146,6 +147,7 @@ async function run(): Promise<void> {
           city?: string;
           address?: string;
           industry?: string;
+          businessItem?: string;
           capitalStockFrom?: number;
           capitalStockTo?: number;
           employeeNumberFrom?: number;
@@ -164,6 +166,7 @@ async function run(): Promise<void> {
           city: args.city,
           address: args.address,
           industry: args.industry,
+          businessItem: args.businessItem,
           capitalStockFrom: args.capitalStockFrom,
           capitalStockTo: args.capitalStockTo,
           employeeNumberFrom: args.employeeNumberFrom,

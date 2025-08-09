@@ -27,6 +27,7 @@ export class CompanySearchController {
       city?: string;
       address?: string;
       industry?: string;
+      businessItem?: string;
       capitalStockFrom?: number;
       capitalStockTo?: number;
       employeeNumberFrom?: number;
@@ -73,6 +74,7 @@ export class CompanySearchController {
       city: params.city?.trim(),
       address: params.address?.trim(),
       industry: params.industry?.trim(),
+      businessItem: params.businessItem?.trim(),
       capitalStockFrom: params.capitalStockFrom,
       capitalStockTo: params.capitalStockTo,
       employeeNumberFrom: params.employeeNumberFrom,

@@ -122,6 +122,7 @@ export class GbizinfoService {
     city?: string;
     address?: string;
     industry?: string;
+    businessItem?: string; // カンマ区切り可（GEPS 営業品目コード）
     capitalStockFrom?: number;
     capitalStockTo?: number;
     employeeNumberFrom?: number;
@@ -146,6 +147,7 @@ export class GbizinfoService {
     if (params.city) query.set("city", params.city);
     if (params.address) query.set("address", params.address);
     if (params.industry) query.set("industry", params.industry);
+    if (params.businessItem) query.set("business_item", params.businessItem);
     if (typeof params.capitalStockFrom === "number") query.set("capital_stock_from", String(params.capitalStockFrom));
     if (typeof params.capitalStockTo === "number") query.set("capital_stock_to", String(params.capitalStockTo));
     if (typeof params.employeeNumberFrom === "number") query.set("employee_number_from", String(params.employeeNumberFrom));
