@@ -11,9 +11,7 @@ export class CompanySearchController {
     from?: number,
     size?: number
   ): Promise<PaginatedResult<Company>> {
-    if (!name || name.trim().length === 0) {
-      throw new InputValidationError("name is required");
-    }
+
     return this.service.searchCompaniesByName(name.trim(), from, size);
   }
 
@@ -37,9 +35,7 @@ export class CompanySearchController {
       size?: number;
     }
   ): Promise<PaginatedResult<Company>> {
-    if (!params.name && !params.corporateNumber && !params.prefecture && !params.city && !params.address && !params.industry) {
-      throw new InputValidationError("at least one filter (name/corporateNumber/prefecture/city) is required");
-    }
+
     return this.service.searchCompanies({
       name: params.name?.trim(),
       corporateNumber: params.corporateNumber?.trim(),
