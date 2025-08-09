@@ -21,20 +21,6 @@ async function run(): Promise<void> {
     return {
       tools: [
         {
-          name: "search_companies",
-          description: "企業名で gBizINFO を検索します。",
-          inputSchema: {
-            type: "object",
-            properties: {
-              name: { type: "string", description: "企業名（部分一致）" },
-              from: { type: "number", description: "開始位置(1始まり)", minimum: 1 },
-              size: { type: "number", description: "取得件数", minimum: 1 }
-            },
-            required: ["name"],
-            additionalProperties: false
-          }
-        },
-        {
           name: "search",
           description: "gBizINFO を複合条件で検索します（Swaggerの検索クエリを個別パラメータで受け付け）。",
           inputSchema: {
@@ -150,12 +136,6 @@ async function run(): Promise<void> {
     const controller = new CompanySearchController(new GbizinfoService(http));
 
     switch (req.params.name) {
-      case "search_companies": {
-        const args = (req.params.arguments ?? {}) as { name: string; from?: number; size?: number };
-        const page = await controller.searchByName(args.name, args.from, args.size);
-        const view = presentCompanyListPage(page);
-        return { content: [{ type: "text", text: JSON.stringify(view, null, 2) }] };
-      }
       case "search": {
         const args = (req.params.arguments ?? {}) as {
           name?: string;
