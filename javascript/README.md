@@ -1,16 +1,21 @@
-## gBizINFO MCP
+## gBizINFO MCP (JavaScript)
 
 gBizINFO 情報提供 API を TypeScript ライブラリおよび Model Context Protocol サーバーとして提供します。サービス層で gBizINFO を呼び出し、MCP では各種取得・検索機能をツールとして公開します。
 
 ### 要件
+
 - Node.js 18+（`fetch` を使用）
 
 ## セットアップ
+
 1. 依存関係をインストール
+
    ```sh
    npm i
    ```
+
 2. `.env` をプロジェクトルートに作成し、以下を設定
+
    ```env
    GBIZINFO_API_TOKEN=あなたのAPIトークン
    # 任意（デフォルト: https://info.gbiz.go.jp/hojin/v1/hojin）
@@ -22,23 +27,29 @@ gBizINFO 情報提供 API を TypeScript ライブラリおよび Model Context 
    ```
 
 メモ:
+
 - 認証ヘッダは仕様通り `X-hojinInfo-api-token` が自動付与されます（`src/services/http.ts`）。
 
 ## OpenAPI スキーマとクライアント生成（任意）
+
 公式 Swagger UI からスキーマを取得し、必要に応じて TypeScript クライアントを生成できます。
+
 1. Swagger UI から JSON を取得し `openapi/raw/gbizinfo-openapi.json` へ保存
 2. YAML に変換し `openapi/gbizinfo-openapi.yaml` へ保存
 3. クライアント生成
+
    ```sh
-   npm run generate:client
+    npm run generate:client
    ```
-   生成先: `src/clients/gbizinfo`
+
+    生成先: `src/clients/gbizinfo`（入力: `../openapi/gbizinfo-openapi.json`）
 
 ## ライブラリの使い方
+
 `GbizinfoService` を直接利用できます。
 
 ```ts
-import { GbizinfoService } from "gbixnfo-mcp";
+import { GbizinfoService } from "gbizinfo-mcp";
 
 const service = new GbizinfoService();
 
@@ -57,11 +68,15 @@ const basic = await service.getBasicInfo("0000000000000");
 エクスポートは `src/index.ts` を参照（`GbizinfoService`, `HttpClient`, `presenters`, `models` など）。
 
 ## MCP サーバーの使い方
+
 ### ローカル実行（Cursor 連携）
+
 1. ビルド
+
    ```sh
    npm run build
    ```
+
 2. Cursor 設定（Settings → MCP → Add Server）
    - Type: Command
    - Command: `node`
@@ -70,11 +85,13 @@ const basic = await service.getBasicInfo("0000000000000");
    - Environment: `GBIZINFO_API_TOKEN=...`
 
 ### npx で起動（公開後）
+
 ```sh
-npx --yes -p gbixnfo-mcp gbizinfo-mcp
+npx --yes -p gbizinfo-mcp gbizinfo-mcp
 ```
 
 ### 提供ツール
+
 - `search`: 企業検索（複合条件: `name`/`corporateNumber`/`corporateType`/`existFlg`/`prefecture`/`city`/`address`/`industry`/`capitalStockFrom`/`capitalStockTo`/`employeeNumberFrom`/`employeeNumberTo`/`establishmentFrom`/`establishmentTo`/`from`/`size`）
 - `get_basic_info`: 基本情報取得（法人番号）
 - `get_certification`: 届出・認定情報
@@ -86,16 +103,21 @@ npx --yes -p gbixnfo-mcp gbizinfo-mcp
 - `get_workplace`: 職場情報
 
 ## 開発
+
 - ウォッチ実行（簡易ランナー）
+
   ```sh
   npm run dev
   ```
+
 - ビルド
+
   ```sh
   npm run build
   ```
 
 ## 設計（MCP アーキテクチャ）
+
 - エントリポイント: `src/index.ts`
 - 環境/設定: `src/config.ts`
 - MCP サーバー: `src/mcp/server.ts`
@@ -106,4 +128,3 @@ npx --yes -p gbixnfo-mcp gbizinfo-mcp
   - Service: `src/services`
 
 セキュリティ/設定、OpenAPI クライアント生成の詳細は `.cursor/rules` のルール（`openapi-client` など）を参照してください。
-
