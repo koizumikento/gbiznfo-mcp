@@ -76,5 +76,10 @@ def get_workplace(corporateNumber: Optional[str] = None) -> Any:  # noqa: N803
     return service.get_workplace(_corporate_arg(corporateNumber))
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """Console-script entrypoint to run the FastMCP server."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
