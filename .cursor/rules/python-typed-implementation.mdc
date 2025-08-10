@@ -46,7 +46,7 @@ globs: python/**/*.py,python/**/*.pyi
 - デフォルトヘッダ:
   - `Content-Type: application/json`
   - `Accept: application/json`
-  - `User-Agent: gbixnfo-mcp/0.1 (+https://info.gbiz.go.jp/)`
+  - `User-Agent: gbizinfo-mcp/0.1 (+https://info.gbiz.go.jp/)`
   - `X-hojinInfo-api-token: <configから>`
 - タイムアウトは全リクエストで必須指定（例: 接続3s/読み込み10s）
 - レスポンスが JSON の場合のみ `json.loads`、非 JSON は生テキスト返却

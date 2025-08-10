@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     request_timeout_seconds: float = Field(default=10.0, alias="REQUEST_TIMEOUT_SECONDS")
     connect_timeout_seconds: float = Field(default=3.0, alias="CONNECT_TIMEOUT_SECONDS")
     retries: int = Field(default=1, alias="HTTP_RETRIES")
-    user_agent: str = Field(default="gbixnfo-mcp/0.1 (+https://info.gbiz.go.jp/)")
+    user_agent: str = Field(default="gbizinfo-mcp/0.1 (+https://info.gbiz.go.jp/)")
     debug_http: bool = Field(default=False, alias="DEBUG_HTTP")
     rate_limit_per_sec: float | None = Field(default=None, alias="RATE_LIMIT_PER_SEC")
 

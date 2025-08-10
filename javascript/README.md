@@ -49,7 +49,7 @@ gBizINFO 情報提供 API を TypeScript ライブラリおよび Model Context 
 `GbizinfoService` を直接利用できます。
 
 ```ts
-import { GbizinfoService } from "gbixnfo-mcp";
+import { GbizinfoService } from "gbizinfo-mcp";
 
 const service = new GbizinfoService();
 
@@ -87,7 +87,7 @@ const basic = await service.getBasicInfo("0000000000000");
 ### npx で起動（公開後）
 
 ```sh
-npx --yes -p gbixnfo-mcp gbizinfo-mcp
+npx --yes -p gbizinfo-mcp gbizinfo-mcp
 ```
 
 ### 提供ツール
