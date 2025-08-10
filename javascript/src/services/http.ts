@@ -28,7 +28,7 @@ export class HttpClient {
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "User-Agent": "gbixnfo-mcp/0.1 (+https://info.gbiz.go.jp/)",
+      "User-Agent": "gbizinfo-mcp/0.1 (+https://info.gbiz.go.jp/)",
       ...(options.headers ?? {}),
       [AUTH_HEADER_NAME]: config.gbizinfoApiToken,
     };
