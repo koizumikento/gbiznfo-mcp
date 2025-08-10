@@ -5,11 +5,11 @@ alwaysApply: true
 
 ## APIトークン管理
 - gBizINFO API のトークンは `.env` に `GBIZINFO_API_TOKEN` として保存
-- 実行時に [`src/config.ts`](mdc:src/config.ts) で必須チェック。欠落時は起動失敗
+- 実行時に [`javascript/src/config.ts`](mdc:javascript/src/config.ts) で必須チェック。欠落時は起動失敗
 - コード/ログにトークンを出力しない
 
 ## 通信周り
-- タイムアウト、リトライ、レート制御は [`src/services/http.ts`](mdc:src/services/http.ts) で集中管理
+- タイムアウト、リトライ、レート制御は [`javascript/src/services/http.ts`](mdc:javascript/src/services/http.ts) で集中管理
 - 公式仕様に従い、APIトークンを認証ヘッダへ自動付与（ヘッダ名は仕様の表記に厳密一致）
 
 ## 監査/ログ

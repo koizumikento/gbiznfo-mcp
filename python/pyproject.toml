@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gbizinfo-mcp"
+version = "0.1.0"
+description = "gBizINFO MCP implementation (Python)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "gbizinfo-mcp maintainers" }]
+dependencies = [
+  "fastapi>=0.111",
+  "fastapi-mcp>=0.3.7",
+  "uvicorn[standard]>=0.30",
+  "requests>=2.32.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gbizinfo_mcp*"]
+
