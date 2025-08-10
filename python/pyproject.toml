@@ -11,11 +11,41 @@ requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "gbizinfo-mcp maintainers" }]
 dependencies = [
-  "fastapi>=0.111",
-  "fastapi-mcp>=0.3.7",
-  "uvicorn[standard]>=0.30",
   "requests>=2.32.0",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "pytest>=8",
+  "fastmcp>=0.1.0",
+  "ruff>=0.5.0",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+fix = true
+exclude = [
+  ".venv",
+  "**/__pycache__",
+  "**/.mypy_cache",
+  "**/.pytest_cache",
+  "src/gbizinfo_mcp.egg-info",
+  "build",
+  "dist",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "BLE", "FBT", "N", "ARG"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["gbizinfo_mcp"]
+combine-as-imports = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
