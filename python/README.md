@@ -8,7 +8,7 @@
 
 `.env` に gBizINFO API トークンを設定します。
 
-```
+```dotenv
 GBIZINFO_API_TOKEN=xxxxxxxxxxxxxxxx
 # 任意: ベースURL/タイムアウト/リトライ
 # GBIZINFO_BASE_URL=https://info.gbiz.go.jp/hojin/v1/hojin
