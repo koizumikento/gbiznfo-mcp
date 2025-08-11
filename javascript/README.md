@@ -1,8 +1,8 @@
-## gBizINFO MCP (JavaScript)
+# gBizINFO MCP (JavaScript)
 
 gBizINFO 情報提供 API を TypeScript ライブラリおよび Model Context Protocol サーバーとして提供します。サービス層で gBizINFO を呼び出し、MCP では各種取得・検索機能をツールとして公開します。
 
-### 要件
+## 要件
 
 - Node.js 18+（`fetch` を使用）
 

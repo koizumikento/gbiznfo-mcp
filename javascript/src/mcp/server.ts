@@ -73,7 +73,7 @@ async function run(): Promise<void> {
           description: "法人番号で基本情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -83,7 +83,7 @@ async function run(): Promise<void> {
           description: "法人番号で届出・認定情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -93,7 +93,7 @@ async function run(): Promise<void> {
           description: "法人番号で表彰情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -103,7 +103,7 @@ async function run(): Promise<void> {
           description: "法人番号で財務情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -113,7 +113,7 @@ async function run(): Promise<void> {
           description: "法人番号で特許情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -123,7 +123,7 @@ async function run(): Promise<void> {
           description: "法人番号で調達情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -133,7 +133,7 @@ async function run(): Promise<void> {
           description: "法人番号で補助金情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
@@ -143,7 +143,7 @@ async function run(): Promise<void> {
           description: "法人番号で職場情報を取得します。",
           inputSchema: {
             type: "object",
-            properties: { corporateNumber: { type: "string" } },
+            properties: { corporateNumber: { type: "string", description: "法人番号 (corporate_number)" } },
             required: ["corporateNumber"],
             additionalProperties: false
           }
