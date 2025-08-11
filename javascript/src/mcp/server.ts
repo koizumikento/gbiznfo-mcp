@@ -13,7 +13,7 @@ async function run(): Promise<void> {
   loadEnv();
 
   const server = new Server(
-    { name: "gbizinfo-mcp", version: "0.1.0" },
+    { name: "gbizinfo-mcp", version: "0.5.1" },
     { capabilities: { tools: {} } }
   );
 
